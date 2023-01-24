@@ -3,6 +3,9 @@
 ###This script install the prerequisite software for Debian or Ubuntu###
 ########################################################################
 ############################ Ubuntu ####################################
+sudo apt-get install \
+     aptitude nano sngrep \
+     terminator -y
 VERSION=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
 if [[ $VERSION = "ubuntu" ]]
 then
@@ -60,3 +63,5 @@ then
 else
   echo "You are using a distribution different than Ubuntu or Debian, please refer to the Docker documentation"
 fi
+echo "Installing docker compose"
+sudo apt-get install docker-compose-plugin
