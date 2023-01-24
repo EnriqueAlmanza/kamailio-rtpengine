@@ -1,22 +1,22 @@
-# kamailio-rtpengine
-Kamailio and RTPengine orchestrated with Docker compose
+## kamailio-rtpengine
+Kamailio and RTPengine implementation installed in Docker containers.
 
 ### Prerequisites
+The script will install the prerequisites software
 - Run the install-prereq.sh script
-Add running permissions to the script
+
 ```bash
 chmod +x install-prereq.sh
 ./install-prereq.sh
 ```
 
-The script will install the prerequisites software and will create the folder structure
+Once Docker and docker-compose are installed create the Kamailio and RTPengine services with docker-compose
 
+```bash
+ docker-compose -f docker-compose.yaml build
+```
 
-
-
-Bash script to start fresh the containers after they are created using Docker compose
-
-Note: The mount flag needs to be specified otherwise the volumes are not mounted
+Once the containers are created use the following script to start fresh the containers after they are created using Docker compose
 
 ```bash
 #!/bin/bash
