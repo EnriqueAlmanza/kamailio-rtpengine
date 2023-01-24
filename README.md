@@ -2,9 +2,12 @@
 Kamailio and RTPengine orchestrated with Docker compose
 
 ### Prerequisites
-The system was running using Ubuntu
-
 - Run the install-prereq.sh script
+Add running permissions to the script
+```bash
+chmod +x install-prereq.sh
+./install-prereq.sh
+```
 
 The script will install the prerequisites software and will create the folder structure
 

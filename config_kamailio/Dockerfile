@@ -7,7 +7,7 @@ COPY kamailio-address.cfg /etc/kamailio/kamailio-address.cfg
 COPY kamailio-routing.cfg /etc/kamailio/kamailio-routing.cfg
 COPY kamctlrc /etc/kamailio/kamctlrc
 COPY kamailio /etc/default/kamailio
-COPY 50-default.conf /etc/rsyslog.d/50-default.conf
+COPY logrotate/50-default.conf /etc/rsyslog.d/50-default.conf
 COPY startup.sh /etc/kamailio/startup.sh
 
 #Adding executing permissions
