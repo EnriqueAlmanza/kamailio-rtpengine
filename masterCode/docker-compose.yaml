@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  kamailio:
+    container_name: kamailio
+    build: ./config_kamailio
+    network_mode: "host"
+    depends_on:
+      - rtpengine
+    volumes:
+      - kamailio:/etc/kamailio
+      - db:/var/lib/mysql
+  rtpengine:
+    container_name: rtpengine
+    build: ./rtpengine
+    network_mode: "host"
+    volumes:
+      - rtpengine:/etc/rtpengine
+
+volumes:
+  kamailio:
+  rtpengine:
+  db:
