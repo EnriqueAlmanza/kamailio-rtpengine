@@ -3,6 +3,7 @@ services:
   kamailio:
     container_name: kamailio
     build: ./config_kamailio
+    network_mode: "host"
     depends_on:
       - rtpengine
     volumes:

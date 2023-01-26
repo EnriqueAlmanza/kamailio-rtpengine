@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt update -y
-RUN apt install aptitude nano git wget gcc g++ perl -y
+RUN apt install nano git wget gcc g++ perl-base -y
 RUN wget https://dfx.at/rtpengine/latest/pool/main/r/rtpengine-dfx-repo-keyring/rtpengine-dfx-repo-keyring_1.0_all.deb
 RUN dpkg -i rtpengine-dfx-repo-keyring_1.0_all.deb
 

@@ -10,7 +10,7 @@ VERSION=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
 if [[ $VERSION = "ubuntu" ]]
 then
   clear
-  echo "Ubuntu Detected"
+  echo "Ubuntu detected"
   echo "Installing prerequisite software for Ubuntu"
   echo "Uninstall old versions"
   sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -37,7 +37,7 @@ then
 elif [[ $VERSION == "debian" ]]
 then
 ############################ Debian ####################################
-  echo "Debian Detected"
+  echo "Debian detected"
   echo "Installing prerequisite software for Debian"
   echo "Uninstall old versions"
   sudo apt-get remove docker docker-engine docker.io containerd runc
