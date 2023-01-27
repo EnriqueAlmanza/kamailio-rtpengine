@@ -56,8 +56,7 @@ then
  docker run --network host --privileged  --mount source=kamailio-rtpengine_rtpengine,target=/etc/rtpengine --name rtpengine -itd kamailio-rtpengine-rtpengine
 
  docker rm -f kamailio
- docker run --network host --privileged --mount source=kamailio-rtpengine_kamailio,target=/etc/kamailio \
-        source=kamailio-rtpengine_db,target=/var/lib/mysql--name kamailio -itd project_v2_kamailio
+ docker run --network host --privileged --mount source=kamailio-rtpengine_kamailio,target=/etc/kamailio --mount source=kamailio-rtpengine_db,target=/var/lib/mysql--name kamailio -itd kamailio-rtpengine-kamailio
 else
  echo "Please, enter a correct option. Terminating..."
 fi

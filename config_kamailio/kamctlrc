@@ -6,7 +6,7 @@
 # will use their internal default values.
 
 ## your SIP domain
-SIP_DOMAIN=192.168.45.128
+SIP_DOMAIN=192.168.0.156
 
 ## chrooted directory
 # $CHROOT_DIR="/path/to/chrooted/directory"
@@ -40,7 +40,7 @@ DBROUSER="kamailioro"
 DBROPW="kamailioro"
 
 ## database access host (from where is kamctl used)
-DBACCESSHOST=192.168.45.128
+DBACCESSHOST=192.168.0.156
 
 ## database super user (for ORACLE this is 'scheme-creator' user)
 DBROOTUSER="root"
