@@ -53,7 +53,8 @@ then
  rm IP
  docker-compose -f docker-compose.yaml up -d
  docker rm -f rtpengine
- docker run --network host --privileged --mount source=project_v2_rtpengine,target=/etc/rtpengine --name rtpengine -itd project_v2_rtpengine
+ docker run --network host --privileged  --mount source=kamailio-rtpengine_rtpengine,target=/etc/rtpengine --name rtpengine -itd kamailio-rtpengine-rtpengine
+
  docker rm -f kamailio
  docker run --network host --privileged --mount source=project_v2_kamailio,target=/etc/kamailio --name kamailio -itd project_v2_kamailio
 else

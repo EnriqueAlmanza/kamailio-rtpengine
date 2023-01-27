@@ -11,7 +11,7 @@ COPY logrotate/50-default.conf /etc/rsyslog.d/50-default.conf
 COPY startup.sh /etc/kamailio/startup.sh
 
 #Adding executing permissions
-RUN chmod 600 /etc/kamailio/startup.sh
+RUN chmod +x /etc/kamailio/startup.sh
 
 #Initial command when starting up the container
 ENTRYPOINT ["/etc/kamailio/startup.sh"]
