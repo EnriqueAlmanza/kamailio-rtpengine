@@ -12,4 +12,5 @@ kamailio=$(which kamailio)
 $kamailio -f $KAM_CONFIG -c
 
 #Run kamailio
+/etc/init.d/kamailio start
 $kamailio -f $KAM_CONFIG -m "${SHM_MEM}" -M "${PKG_MEM}" -DD -E -e
