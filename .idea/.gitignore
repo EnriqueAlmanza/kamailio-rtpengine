@@ -5,5 +5,5 @@
 /inspectionProfiles/
 ../masterCode/
 ../config_kamailio/webrtc/sandbox
-../config_kamilio/logrotate/kamailio
-../config_kamilio/kamailio_routing.cfg
+../config_kamailio/logrotate/kamailio
+../config_kamailio/kamailio_routing.cfg
