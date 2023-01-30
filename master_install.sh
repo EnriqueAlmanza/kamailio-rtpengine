@@ -1,7 +1,7 @@
 #!/bin/bash
-#########################################
-###Kamailio and RTPengineconfiguration###
-#########################################
+############################
+###Kamailio configuration###
+############################
 function create_rtpengineconf() {
   RTPconf="./rtpengine.conf"
   /bin/cat <<EOM >$RTPconf
@@ -44,8 +44,8 @@ EOM
 
 function running_containers() {
   echo "Using docker compose to start the containers"
-  #docker compose build --no-cache
-  #docker compose up -d
+  docker compose build --no-cache
+  docker compose up -d
 }
 
 clear
