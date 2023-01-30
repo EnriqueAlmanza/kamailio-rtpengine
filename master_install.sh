@@ -1,9 +1,9 @@
 #!/bin/bash
-##########################################
-###Kamailio and RTPengine configuration###
-##########################################
+#########################################
+###Kamailio and RTPengineconfiguration###
+#########################################
 function create_rtpengineconf() {
-  RTPconf=".rtpengine/rtpengine.conf"
+  RTPconf="./rtpengine.conf"
   /bin/cat <<EOM >$RTPconf
 [rtpengine]
 table = -1
@@ -30,7 +30,7 @@ EOM
 }
 
 function create_kamailio_address() {
-  kamAddress=".config_kamailio/kamailio-address.cfg"
+  kamAddress="./kamailio-address.cfg"
   /bin/cat <<EOM >$kamAddress
 #!KAMAILIO
 #!substdef "!MY_IP_ADDR!$IP!g"
@@ -44,14 +44,13 @@ EOM
 
 function running_containers() {
   echo "Using docker compose to start the containers"
-  docker compose build --no-cache
-  docker compose up -d
+  #docker compose build --no-cache
+  #docker compose up -d
 }
 
 clear
-#echo "Configure Kamailio with the following IP address? (y/n)"
-#ip add | sed -En 's/127.0.0.1//;s/172.17.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'
-IP=$(ip add | sed -En 's/127.0.0.1//;s/172.17.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
+IP=$(ip add | sed -En \
+'s/127.0.0.1//;s/172.17.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
 {
   prompt="Configure Kamailio with the address $IP? (y/n): "
   read -p "$prompt" decision
@@ -68,7 +67,6 @@ then
   create_kamailio_address $IP
 elif [[ $decision = "y" ]]
 then
-  IP=$(ip add | sed -En 's/127.0.0.1//;s/172.17.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
   echo -e "Generating kamailio-address.cfg file \n"
   create_kamailio_address $IP
 else
@@ -78,7 +76,6 @@ fi
 #############################
 ###RTPengine configuration###
 #############################
-#echo "Configure RTPengine with the following IP address? (y/n)"
 {
   prompt="Configure RTPengine with the address $IP? (y/n): "
   read -p "$prompt" decision
@@ -96,7 +93,6 @@ then
   running_containers
 elif [[ $decision = "y" ]]
 then
-  IP=$(ip add | sed -En 's/127.0.0.1//;s/172.17.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
   echo "Generating rtpengine.conf file"
   create_rtpengineconf $IP
   running_containers
