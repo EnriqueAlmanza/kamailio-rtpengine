@@ -13,7 +13,7 @@ ENV REL="11.1"
 RUN echo "deb [signed-by=/usr/share/keyrings/dfx.at-rtpengine-archive-keyring.gpg] \
   https://dfx.at/rtpengine/$REL $DIST main" | tee /etc/apt/sources.list.d/dfx.at-rtpengine.list
 RUN apt update -y
-RUN apt install rtpengine -y
+RUN apt install rtpengine rsyslog -y
 
 COPY rtpengine.conf /etc/rtpengine/
 

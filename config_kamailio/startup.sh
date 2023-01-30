@@ -1,7 +1,6 @@
 #!/bin/bash
-SHM_MEM=512
+SHM_MEM=256
 PKG_MEM=64
-FILE=/startup.sh
 export KAM_CONFIG=/etc/kamailio/kamailio.cfg
 kamailio=$(which kamailio)
 
@@ -12,4 +11,5 @@ kamailio=$(which kamailio)
 $kamailio -f $KAM_CONFIG -c
 
 #Run kamailio
+/etc/init.d/kamailio start
 $kamailio -f $KAM_CONFIG -m "${SHM_MEM}" -M "${PKG_MEM}" -DD -E -e
