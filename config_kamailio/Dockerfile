@@ -6,7 +6,7 @@ FROM kikealmanza/masterkam:55
 #Configuration files using websocket
 COPY kamailio.cfg /etc/kamailio/kamailio.cfg
 COPY kamailio-modules.cfg /etc/kamailio/kamailio-modules.cfg
-COPY kamailio-address.cfg /etc/kamailio/kamailio-address.cfg
+COPY kamailio-address_bkp.cfg /etc/kamailio/kamailio-address.cfg
 COPY kamailio /etc/default/kamailio
 COPY logrotate/50-default.conf /etc/rsyslog.d/50-default.conf
 COPY startup.sh /etc/kamailio/startup.sh

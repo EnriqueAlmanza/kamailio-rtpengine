@@ -15,7 +15,7 @@ RUN echo "deb [signed-by=/usr/share/keyrings/dfx.at-rtpengine-archive-keyring.gp
 RUN apt update -y
 RUN apt install rtpengine rsyslog -y
 
-COPY rtpengine.conf /etc/rtpengine/
+COPY rtpengine_bkp.conf /etc/rtpengine/
 
 # Startup script
 COPY start.sh /start.sh
