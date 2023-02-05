@@ -59,7 +59,7 @@ The script generates the "kamailio-address.cfg" and "rtpengine.conf" files
 
 
 
-### References:
+### References
 
 Official Kamailio [Kamailio](https://github.com/kamailio/kamailio)
 
