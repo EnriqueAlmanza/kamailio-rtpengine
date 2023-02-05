@@ -1,7 +1,7 @@
 ##### Table of Contents
 
 <!-- TOC -->
-        * [Table of Contents](#table-of-contents)
+
 * [kamailio-rtpengine](#kamailio-rtpengine)
     * [Prerequisites](#prerequisites)
     * [Certificates](#certificates)
@@ -50,7 +50,7 @@ docker cp privkey.pem kamailio:/home/certificate/privkey.pem
 docker cp catlist.pem kamailio:/etc/pki/CA/catlist.pem
 docker exec -it kamailio /etc/init.d/kamailio restart
 ```
-## Using "master_install.sh" script
+### Using "master_install.sh" script
 
 The script will run Kamailio and RTPengine in the PC where the script is running. It will start
 the Docker containers using the network of the host machine.
