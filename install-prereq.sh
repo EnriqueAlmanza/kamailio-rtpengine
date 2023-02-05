@@ -23,11 +23,13 @@ then
       lsb-release -y
   echo "Adding Docker´s official GPG key"
   sudo mkdir -p /etc/apt/keyrings
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+  sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
   echo "Setting up repository"
   echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+    https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | \ sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   sudo chmod a+r /etc/apt/keyrings/docker.gpg
   sudo apt-get update -y
   echo "Installing latest version"
@@ -50,10 +52,12 @@ then
       lsb-release -Y
   echo "Adding Docker´s official GPG key"
   sudo mkdir -p /etc/apt/keyrings
-  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  curl -fsSL https://download.docker.com/linux/debian/gpg | \
+  sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
   echo "Setting up repository"
   echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+    https://download.docker.com/linux/debian \
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   sudo chmod a+r /etc/apt/keyrings/docker.gpg
   sudo apt-get update -y
@@ -61,7 +65,8 @@ then
   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
   sudo docker run hello-world
 else
-  echo "You are using a distribution different than Ubuntu or Debian, please refer to the Docker documentation"
+  echo "You are using a distribution different than Ubuntu or Debian, \
+  please refer to the Docker documentation"
 fi
 echo "Installing docker compose"
 sudo apt-get install docker-compose-plugin
