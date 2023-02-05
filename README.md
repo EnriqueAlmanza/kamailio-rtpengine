@@ -5,12 +5,16 @@
 * [kamailio-rtpengine](#kamailio-rtpengine)
     * [Prerequisites](#prerequisites)
     * [Certificates](#certificates)
-  * [Using "master_install.sh" script](#using--masterinstallsh--script)
-  * [References:](#references-)
+    * [Using "master_install.sh" script](#using--masterinstallsh--script)
+    * [References](#references)
 <!-- TOC -->
+
+<a name="kamailio-rtpengine"/>
 
 # kamailio-rtpengine
 Kamailio and RTPengine implementation installed in Docker containers.
+
+<a name="prerequisites"/>
 
 ### Prerequisites
 The script will install the prerequisites software
@@ -35,6 +39,9 @@ docker run --network host --privileged --mount source=project_v2_rtpengine,targe
 docker rm -f kamailio
 docker run --network host --privileged --mount source=project_v2_kamailio,target=/etc/kamailio --name kamailio -itd project_v2_kamailio
 ````
+
+<a name="certificates"/>
+
 ### Certificates
 Kamailio runs with a self-signed certificate, exchange if needed with new certificates as:
 ```bash
@@ -50,14 +57,16 @@ docker cp privkey.pem kamailio:/home/certificate/privkey.pem
 docker cp catlist.pem kamailio:/etc/pki/CA/catlist.pem
 docker exec -it kamailio /etc/init.d/kamailio restart
 ```
+
+<a name="using--masterinstallsh--script"/>
+
 ### Using "master_install.sh" script
 
 The script will run Kamailio and RTPengine in the PC where the script is running. It will start
 the Docker containers using the network of the host machine.
 The script generates the "kamailio-address.cfg" and "rtpengine.conf" files
 
-
-
+<a name="references"/>
 
 ### References
 
